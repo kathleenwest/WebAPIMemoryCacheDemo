@@ -1,0 +1,9 @@
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\bin\Release\Client.exe.config
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\bin\Release\Client.exe
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\bin\Release\Client.pdb
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.Main.resources
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.Properties.Resources.resources
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.csproj.GenerateResource.cache
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.csproj.CoreCompileInputs.cache
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.exe
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.pdb
