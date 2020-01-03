@@ -19,6 +19,9 @@ namespace WebAPIService.Controllers
         // Memory Cache
         ObjectCache cache = MemoryCache.Default;
 
+        // Set up a cache policy
+        CacheItemPolicy policy;
+
         /// <summary>
         /// ValuesController
         /// Constructs a temporary collection for the
@@ -48,9 +51,9 @@ namespace WebAPIService.Controllers
                 people.Add("Whoopi Goldberg");
                 people.Add("John Di Lancie");
                 people.Add("Diana Muldaur");
+                people.Add(DateTime.Now.ToLongTimeString());
 
-                // Set up a cache policy
-                CacheItemPolicy policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(5)};
+                policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(2) };
 
                 // Add a new Cache!
                 cache.Add("People", people, policy);
@@ -111,7 +114,10 @@ namespace WebAPIService.Controllers
             people.Add(value);
 
             // Update the Cache
-            cache["People"] = people;
+            //cache["People"] = people;
+
+            // Update the Cache
+            cache.Set("People", people, policy);
         }
 
         /// <summary>
@@ -140,7 +146,10 @@ namespace WebAPIService.Controllers
             people[id] = value;
 
             // Update the Cache
-            cache["People"] = people;
+            //cache["People"] = people;
+
+            // Update the Cache
+            //cache.Set("People", people, policy);
         }
 
         /// <summary>
@@ -167,7 +176,10 @@ namespace WebAPIService.Controllers
             people.RemoveAt(id);
 
             // Update the Cache
-            cache["People"] = people;
+            //cache["People"] = people;
+
+            // Update the Cache
+            //cache.Set("People", people, policy);
         }
 
     } // end of class

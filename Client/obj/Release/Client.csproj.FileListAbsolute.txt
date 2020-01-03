@@ -7,3 +7,4 @@ C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.
 C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.csproj.CoreCompileInputs.cache
 C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.exe
 C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.pdb
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\Client\obj\Release\Client.csprojAssemblyReference.cache
