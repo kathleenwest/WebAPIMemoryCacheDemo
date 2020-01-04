@@ -22,6 +22,9 @@ namespace WebAPIService.Controllers
         // Set up a cache policy
         CacheItemPolicy policy;
 
+        // List of people
+        List<string> people;
+
         /// <summary>
         /// ValuesController
         /// Constructs a temporary collection for the
@@ -34,7 +37,8 @@ namespace WebAPIService.Controllers
             if (!cache.Contains("People"))
             {
                 // Simple List of People for CRUD Example
-                List<string> people = new List<string>();
+                //List<string> people = new List<string>();
+                people = new List<string>();
 
                 // Add some generic values
                 people.Add("Patrict Stewart");
@@ -53,7 +57,7 @@ namespace WebAPIService.Controllers
                 people.Add("Diana Muldaur");
                 people.Add(DateTime.Now.ToLongTimeString());
 
-                policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(2) };
+                policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(1) };
 
                 // Add a new Cache!
                 cache.Add("People", people, policy);
@@ -108,7 +112,8 @@ namespace WebAPIService.Controllers
         public void Post([FromBody]string value)
         {
             // Get the List of Entities from the Cache
-            List<string> people = (List<string>)cache.Get("People");
+            //List<string> people = (List<string>)cache.Get("People");
+            people = (List<string>)cache.Get("People");
 
             // Add the entity
             people.Add(value);
@@ -117,7 +122,7 @@ namespace WebAPIService.Controllers
             //cache["People"] = people;
 
             // Update the Cache
-            cache.Set("People", people, policy);
+            //cache.Set("People", people, policy);
         }
 
         /// <summary>

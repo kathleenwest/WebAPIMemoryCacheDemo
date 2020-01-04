@@ -83,3 +83,4 @@ C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\WebAPIService\obj\Debug\We
 C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\WebAPIService\obj\Debug\WebAPIService.dll
 C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\WebAPIService\obj\Debug\WebAPIService.pdb
 C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\WebAPIService\bin\XmlDocument.xml
+C:\Users\kathl\Dropbox\Projects\WebAPIMemoryCacheDemo\WebAPIService\obj\Debug\WebAPIService.csprojAssemblyReference.cache
