@@ -19,9 +19,6 @@ namespace WebAPIService.Controllers
         // Memory Cache
         ObjectCache cache = MemoryCache.Default;
 
-        // Set up a cache policy
-        CacheItemPolicy policy;
-
         // List of people
         List<string> people;
 
@@ -37,7 +34,6 @@ namespace WebAPIService.Controllers
             if (!cache.Contains("People"))
             {
                 // Simple List of People for CRUD Example
-                //List<string> people = new List<string>();
                 people = new List<string>();
 
                 // Add some generic values
@@ -55,9 +51,10 @@ namespace WebAPIService.Controllers
                 people.Add("Whoopi Goldberg");
                 people.Add("John Di Lancie");
                 people.Add("Diana Muldaur");
-                people.Add(DateTime.Now.ToLongTimeString());
+                people.Add($"Cached: {DateTime.Now.ToLongTimeString()}");
 
-                policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(1) };
+                // Cache Expiration set to 2 minutes in the future
+                CacheItemPolicy policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(2) };
 
                 // Add a new Cache!
                 cache.Add("People", people, policy);
@@ -88,7 +85,7 @@ namespace WebAPIService.Controllers
         public string Get(int id)
         {
             // Get the List of Entities from the Cache
-            List<string> people = (List<string>)cache.Get("People");
+            people = (List<string>)cache.Get("People");
 
             // Don't Process if ID is out of Range 0-entity,count
             if (id >= people.Count || id < 0)
@@ -112,23 +109,16 @@ namespace WebAPIService.Controllers
         public void Post([FromBody]string value)
         {
             // Get the List of Entities from the Cache
-            //List<string> people = (List<string>)cache.Get("People");
             people = (List<string>)cache.Get("People");
 
             // Add the entity
             people.Add(value);
-
-            // Update the Cache
-            //cache["People"] = people;
-
-            // Update the Cache
-            //cache.Set("People", people, policy);
-        }
+         
+        } // end of method
 
         /// <summary>
         /// Put
-        /// Replaces the entity with an identifier
-        /// with a new value. 
+        /// Replaces the entity with an identifier with a new value.
         /// PUT api/values/5
         /// IF index out of range => Returns a HttpStatusCode.BadRequest
         /// </summary>
@@ -137,7 +127,7 @@ namespace WebAPIService.Controllers
         public void Put(int id, [FromBody]string value)
         {
             // Get the List of Entities from the Cache
-            List<string> people = (List<string>)cache.Get("People");
+            people = (List<string>)cache.Get("People");
 
             // Don't Process if ID is out of Range 0-entity,count
             if (id >= people.Count || id < 0)
@@ -150,12 +140,7 @@ namespace WebAPIService.Controllers
             //Update the Entity
             people[id] = value;
 
-            // Update the Cache
-            //cache["People"] = people;
-
-            // Update the Cache
-            //cache.Set("People", people, policy);
-        }
+        } // end of method
 
         /// <summary>
         /// Delete
@@ -167,7 +152,7 @@ namespace WebAPIService.Controllers
         public void Delete(int id)
         {
             // Get the List of Entities from the Cache
-            List<string> people = (List<string>)cache.Get("People");
+            people = (List<string>)cache.Get("People");
 
             // Don't Process if ID is out of Range 0-entity,count
             if (id >= people.Count || id < 0)
@@ -180,12 +165,7 @@ namespace WebAPIService.Controllers
             // Delete the Entity
             people.RemoveAt(id);
 
-            // Update the Cache
-            //cache["People"] = people;
-
-            // Update the Cache
-            //cache.Set("People", people, policy);
-        }
+        } // end of method
 
     } // end of class
 } // end of namespace

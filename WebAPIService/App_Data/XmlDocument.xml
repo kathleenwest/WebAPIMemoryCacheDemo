@@ -526,8 +526,7 @@
         <member name="M:WebAPIService.Controllers.ValuesController.Put(System.Int32,System.String)">
             <summary>
             Put
-            Replaces the entity with an identifier
-            with a new value. 
+            Replaces the entity with an identifier with a new value.
             PUT api/values/5
             IF index out of range => Returns a HttpStatusCode.BadRequest
             </summary>
